@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:cell_info/CellResponse.dart';
-import 'package:cell_info/cell_info.dart';
+import 'package:nr_cellinfo/nr_cellinfo.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
@@ -38,7 +37,7 @@ class _CounterFuntionsScreenState extends State<CounterFuntionsScreen> {
     try {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high);
-      String? platformVersion = await CellInfo.getCellInfo;
+      String? platformVersion = await NrCellinfo.getCellInfo;
       final body = json.decode(platformVersion!);
       dataTemp = body.toString();
       details = {
